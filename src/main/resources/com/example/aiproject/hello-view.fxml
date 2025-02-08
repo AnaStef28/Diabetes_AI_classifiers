@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="394.0" prefWidth="509.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aiproject.HelloController">
+    <VBox>
+        <Label style="-fx-padding: 5 0 0 10;" text="Please select the source file" />
+        <HBox>
+            <Button onAction="#handleFileSelection" text="Select" translateX="5" />
+            <Label fx:id="label" text="Selected File" translateX="20" translateY="5">
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets></Label>
+
+        </HBox>
+    </VBox>
+
+    <TabPane prefHeight="400.0" prefWidth="536.0">
+        <Tab closable="false" text="KNN">
+            <VBox>
+                <HBox>
+                    <Label text="Amount of data used for training:" translateX="20" translateY="8" />
+                    <Spinner fx:id="spinnerKNN" editable="true" max="90" maxWidth="60" min="10" translateX="35" translateY="5" />
+                </HBox>
+
+                <HBox translateY="5">
+                    <Label text="Please input a k value: " translateX="20" translateY="10" />
+                    <TextField fx:id="kValue" maxWidth="60" translateX="93.0" translateY="7" />
+                </HBox>
+                <HBox translateY="5">
+                    <Button fx:id="trainKNN" mnemonicParsing="false" onAction="#trainKNN" text="Train" translateX="20" translateY="20" />
+                    <Label fx:id="confirmKNN" translateX="30" translateY="24" />
+                </HBox>
+
+                <HBox alignment="CENTER" prefHeight="212.0" prefWidth="400.0" translateY="28.0">
+                    <Button fx:id="testKNN" mnemonicParsing="false" onAction="#testKNN" text="Test" translateX="-25.0" />
+               <GridPane fx:id="gridKNN" gridLinesVisible="true" maxHeight="200.0" maxWidth="200.0" prefHeight="200.0" prefWidth="200.0">
+                 <columnConstraints>
+                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                 </columnConstraints>
+                 <rowConstraints>
+                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                 </rowConstraints>
+                  <children>
+                     <Label alignment="CENTER" prefHeight="63.0" prefWidth="67.0" text="Matrix" textAlignment="CENTER" wrapText="true" />
+                     <Label prefHeight="63.0" prefWidth="67.0" text="Actually Positive" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+                     <Label text="Actually Negative" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" />
+                     <Label prefHeight="67.0" prefWidth="68.0" text="Predicted Positive" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1" />
+                     <Label fx:id="tpKNN" alignment="CENTER" contentDisplay="CENTER" prefHeight="65.0" prefWidth="67.0" text="Result" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     <Label fx:id="fpKNN" alignment="CENTER" prefHeight="65.0" prefWidth="69.0" text="Result" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                     <Label prefHeight="68.0" prefWidth="78.0" text="Predicted Negative" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="2" />
+                     <Label fx:id="fnKNN" alignment="CENTER" prefHeight="66.0" prefWidth="69.0" text="Result" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     <Label fx:id="tnKNN" alignment="CENTER" prefHeight="64.0" prefWidth="68.0" text="Result" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  </children>
+               </GridPane>
+               <Label fx:id="f1KNN" text="F1 score: " translateX="25.0" />
+
+                </HBox>
+
+            </VBox>
+        </Tab>
+        <Tab closable="false" text="Naive Bayes">
+            <VBox>
+                <HBox>
+                    <Label text="Amount of data used for training: " translateX="20" translateY="8" />
+                    <Spinner fx:id="spinnerNaive" editable="true" max="90" maxWidth="60" min="10" translateX="35" translateY="5" />
+                </HBox>
+                <HBox translateY="5">
+                    <Button fx:id="trainNaive" mnemonicParsing="false" onAction="#trainNaive" text="Train" translateX="20" translateY="20" />
+                    <Label fx:id="confirmNaive" translateX="30" translateY="24" />
+                </HBox>
+
+                <HBox alignment="CENTER" prefHeight="237.0" prefWidth="400.0" translateY="30.0">
+                    <Button fx:id="testNaive" mnemonicParsing="false" onAction="#testNaive" text="Test" translateX="-25.0" />
+                    <GridPane fx:id="gridNaive" gridLinesVisible="true" maxHeight="200.0" maxWidth="200.0" prefHeight="200.0" prefWidth="200.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                            <Label alignment="CENTER" prefHeight="63.0" prefWidth="67.0" text="Matrix" textAlignment="CENTER" wrapText="true" />
+                            <Label prefHeight="63.0" prefWidth="67.0" text="Actually Positive" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+                            <Label text="Actually Negative" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" />
+                            <Label prefHeight="67.0" prefWidth="68.0" text="Predicted Positive" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1" />
+                            <Label fx:id="tpNaive" alignment="CENTER" contentDisplay="CENTER" prefHeight="65.0" prefWidth="67.0" text="Result" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            <Label fx:id="fpNaive" alignment="CENTER" prefHeight="65.0" prefWidth="69.0" text="Result" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                            <Label prefHeight="68.0" prefWidth="78.0" text="Predicted Negative" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="2" />
+                            <Label fx:id="fnNaive" alignment="CENTER" prefHeight="66.0" prefWidth="69.0" text="Result" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            <Label fx:id="tnNaive" alignment="CENTER" prefHeight="64.0" prefWidth="68.0" text="Result" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        </children>
+                    </GridPane>
+               <Label fx:id="f1Naive" text="F1 score:" translateX="20.0" />
+
+                </HBox>
+            </VBox>
+        </Tab>
+        <Tab closable="false" text="Perceptron">
+            <VBox>
+                <HBox>
+                    <Label text="Amount of data used for training:" translateX="20" translateY="8" />
+                    <Spinner fx:id="spinnerPerc" editable="true" max="90" maxWidth="60" min="10" translateX="55.0" translateY="5" />
+                </HBox>
+                <HBox translateY="5">
+                    <Label text="Please input a learning rate (0-1): " translateX="20" translateY="10" />
+                    <TextField fx:id="ratePerc" maxWidth="60" translateX="54.0" translateY="7" />
+                </HBox>
+                <HBox translateY="5">
+                    <Label text="Please input the number of iterations: " translateX="20" translateY="10" />
+                    <TextField fx:id="iterationsPerc" maxWidth="60" translateX="30" translateY="7" />
+                </HBox>
+                <HBox translateY="5">
+                    <Button fx:id="trainPerc" mnemonicParsing="false" onAction="#trainPerc" text="Train" translateX="20" translateY="20" />
+                    <Label fx:id="confirmPerc" translateX="30" translateY="24" />
+                </HBox>
+
+                <HBox fx:id="trainPerc" alignment="CENTER" prefHeight="187.0" prefWidth="400.0" translateY="28.0">
+                    <Button fx:id="testPerc" mnemonicParsing="false" onAction="#testPerc" text="Test" translateX="-25.0" />
+                    <GridPane fx:id="gridPerc" gridLinesVisible="true" maxHeight="180.0" maxWidth="180.0" prefHeight="180.0" prefWidth="180.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                            <Label alignment="CENTER" prefHeight="63.0" prefWidth="67.0" text="Matrix" textAlignment="CENTER" wrapText="true" />
+                            <Label prefHeight="63.0" prefWidth="67.0" text="Actually Positive" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+                            <Label text="Actually Negative" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" />
+                            <Label prefHeight="67.0" prefWidth="68.0" text="Predicted Positive" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1" />
+                            <Label fx:id="tpPerc" alignment="CENTER" contentDisplay="CENTER" prefHeight="65.0" prefWidth="67.0" text="Result" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            <Label fx:id="fpPerc" alignment="CENTER" prefHeight="65.0" prefWidth="69.0" text="Result" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                            <Label prefHeight="68.0" prefWidth="78.0" text="Predicted Negative" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="2" />
+                            <Label fx:id="fnPerc" alignment="CENTER" prefHeight="66.0" prefWidth="69.0" text="Result" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            <Label fx:id="tnPerc" alignment="CENTER" prefHeight="64.0" prefWidth="68.0" text="Result" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        </children>
+                    </GridPane>
+               <Label fx:id="f1Perc" text="F1 score:" translateX="20.0" />
+
+                </HBox>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>
